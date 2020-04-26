@@ -1,4 +1,4 @@
-package ru.Bykova.JAVA_lessons.sandbox2;
+package ru.Bykova.JAVA_lessons.sandbox;
 
 public class Point {
 

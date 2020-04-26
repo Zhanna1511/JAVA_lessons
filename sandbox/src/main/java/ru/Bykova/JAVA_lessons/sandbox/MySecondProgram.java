@@ -1,7 +1,4 @@
-package ru.Bykova.JAVA_lessons.sandbox2;
-
-import ru.Bykova.JAVA_lessons.sandbox.Rectangle;
-import ru.Bykova.JAVA_lessons.sandbox.Square;
+package ru.Bykova.JAVA_lessons.sandbox;
 
 public class MySecondProgram {
 
