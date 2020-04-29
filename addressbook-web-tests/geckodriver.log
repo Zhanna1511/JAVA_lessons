@@ -1,0 +1,184 @@
+1588100347949	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\user\\AppData\\Local\\Temp\\rust_mozprofilepw13lq"
+1588100347992	geckodriver::marionette	DEBUG	Waiting 60s to connect to browser on 127.0.0.1:50837
+1588100360462	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1588100361164	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1588100361164	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1588100361164	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1588100361164	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1588100361702	Marionette	TRACE	Received observer notification profile-after-change
+1588100363093	Marionette	TRACE	Received observer notification toplevel-window-ready
+1588100363660	Marionette	TRACE	Received observer notification command-line-startup
+1588100363661	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1588100364824	Marionette	TRACE	Received observer notification toplevel-window-ready
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: "Could not write session state file " (new Error("_initWorker called too early! Please read the session file from disk first.", "resource:///modules/sessionstore/SessionFile.jsm", 375)) "_initWorker/<@resource:///modules/sessionstore/SessionFile.jsm:375:15\n_initWorker@resource:///modules/sessionstore/SessionFile.jsm:368:12\n_postToWorker@resource:///modules/sessionstore/SessionFile.jsm:410:16\nwrite@resource:///modules/sessionstore/SessionFile.jsm:448:24\nwrite@resource:///modules/sessionstore/SessionFile.jsm:75:32\n_writeState@resource:///modules/sessionstore/SessionSaver.jsm:360:24\n_saveState@resource:///modules/sessionstore/SessionSaver.jsm:294:17\n_saveStateAsync@resource:///modules/sessionstore/SessionSaver.jsm:344:10\nsaveStateAsyncWhenIdle@resource:///modules/sessionstore/SessionSaver.jsm:191:14\ncallback@resource://gre/modules/Timer.jsm:125:16\n"
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+[Parent 8636, Gecko_IOThread] WARNING: file z:/task_1579288126/build/src/ipc/chromium/src/base/process_util_win.cc, line 160
+[Parent 8636, Gecko_IOThread] WARNING: file z:/task_1579288126/build/src/ipc/chromium/src/base/process_util_win.cc, line 160
+1588100401626	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+makeAddonVisible@XPIDatabase.jsm:2281:10
+addToDatabase@XPIDatabase.jsm:2208:12
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100401629	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+addToDatabase@XPIDatabase.jsm:2211:10
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100401720	Marionette	TRACE	Received observer notification marionette-startup-requested
+1588100401721	Marionette	TRACE	Waiting until startup recorder finished recording startup scripts...
+1588100401730	Marionette	TRACE	All scripts recorded.
+1588100401730	Marionette	DEBUG	Setting recommended pref apz.content_response_timeout to 60000
+1588100401731	Marionette	DEBUG	Setting recommended pref browser.contentblocking.introCount to 99
+1588100401731	Marionette	DEBUG	Setting recommended pref browser.download.panel.shown to true
+1588100401731	Marionette	DEBUG	Setting recommended pref browser.newtabpage.enabled to false
+1588100401732	Marionette	DEBUG	Setting recommended pref browser.pagethumbnails.capturing_disabled to true
+1588100401732	Marionette	DEBUG	Setting recommended pref browser.search.update to false
+1588100401732	Marionette	DEBUG	Setting recommended pref browser.tabs.disableBackgroundZombification to false
+1588100401732	Marionette	DEBUG	Setting recommended pref browser.tabs.remote.separatePrivilegedContentProcess to false
+1588100401733	Marionette	DEBUG	Setting recommended pref browser.tabs.unloadOnLowMemory to false
+1588100401733	Marionette	DEBUG	Setting recommended pref browser.tabs.warnOnCloseOtherTabs to false
+1588100401733	Marionette	DEBUG	Setting recommended pref browser.tabs.warnOnOpen to false
+1588100401733	Marionette	DEBUG	Setting recommended pref browser.usedOnWindows10.introURL to 
+1588100401733	Marionette	DEBUG	Setting recommended pref browser.urlbar.suggest.searches to false
+1588100401734	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1588100401734	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1588100401734	Marionette	DEBUG	Setting recommended pref dom.disable_open_during_load to false
+1588100401734	Marionette	DEBUG	Setting recommended pref dom.file.createInChild to true
+1588100401734	Marionette	DEBUG	Setting recommended pref dom.max_chrome_script_run_time to 0
+1588100401735	Marionette	DEBUG	Setting recommended pref dom.max_script_run_time to 0
+1588100401735	Marionette	DEBUG	Setting recommended pref dom.push.connection.enabled to false
+1588100401735	Marionette	DEBUG	Setting recommended pref extensions.getAddons.cache.enabled to false
+1588100401735	Marionette	DEBUG	Setting recommended pref extensions.webservice.discoverURL to http://%(server)s/dummy/discoveryURL
+1588100401735	Marionette	DEBUG	Setting recommended pref network.http.prompt-temp-redirect to false
+1588100401735	Marionette	DEBUG	Setting recommended pref network.http.speculative-parallel-limit to 0
+1588100401735	Marionette	DEBUG	Setting recommended pref privacy.trackingprotection.enabled to false
+1588100401735	Marionette	DEBUG	Setting recommended pref security.fileuri.strict_origin_policy to false
+1588100401736	Marionette	DEBUG	Setting recommended pref security.notification_enable_delay to 0
+1588100401736	Marionette	DEBUG	Setting recommended pref signon.autofillForms to false
+1588100401736	Marionette	DEBUG	Setting recommended pref signon.rememberSignons to false
+1588100401736	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1588100401914	Marionette	INFO	Listening on port 50837
+1588100401914	Marionette	DEBUG	Marionette is listening
+1588100402274	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:50933
+1588100402334	geckodriver::marionette	DEBUG	Connection to Marionette established on 127.0.0.1:50837.
+1588100402402	Marionette	DEBUG	0 -> [0,1,"WebDriver:NewSession",{"acceptInsecureCerts":true,"browserName":"firefox"}]
+1588100402402	Marionette	WARN	TLS certificate errors will be ignored for this session
+1588100402427	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+makeAddonVisible@XPIDatabase.jsm:2281:10
+addToDatabase@XPIDatabase.jsm:2208:12
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100402427	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+addToDatabase@XPIDatabase.jsm:2211:10
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100402648	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+makeAddonVisible@XPIDatabase.jsm:2281:10
+addToDatabase@XPIDatabase.jsm:2208:12
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100402649	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+addToDatabase@XPIDatabase.jsm:2211:10
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100402901	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+makeAddonVisible@XPIDatabase.jsm:2281:10
+addToDatabase@XPIDatabase.jsm:2208:12
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100402903	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+addToDatabase@XPIDatabase.jsm:2211:10
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100403305	Marionette	DEBUG	Closed connection 0
+1588100403344	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+makeAddonVisible@XPIDatabase.jsm:2281:10
+addToDatabase@XPIDatabase.jsm:2208:12
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100403345	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+addToDatabase@XPIDatabase.jsm:2211:10
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100403390	webdriver::server	DEBUG	Deleting session
+1588100403719	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+makeAddonVisible@XPIDatabase.jsm:2281:10
+addToDatabase@XPIDatabase.jsm:2208:12
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100403719	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+addToDatabase@XPIDatabase.jsm:2211:10
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100403859	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+makeAddonVisible@XPIDatabase.jsm:2281:10
+addToDatabase@XPIDatabase.jsm:2208:12
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+1588100403859	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1478:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1478:17
+addToDatabase@XPIDatabase.jsm:2211:10
+install@XPIInstall.jsm:4343:27
+_activateAddon@XPIInstall.jsm:4370:7
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 912: Error: Connection is not open.
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 912: Error: Connection is not open.
+1588100408394	Marionette	TRACE	Received observer notification xpcom-will-shutdown
+1588100408394	Marionette	DEBUG	Resetting recommended pref apz.content_response_timeout
+1588100408394	Marionette	DEBUG	Resetting recommended pref browser.contentblocking.introCount
+1588100408394	Marionette	DEBUG	Resetting recommended pref browser.download.panel.shown
+1588100408395	Marionette	DEBUG	Resetting recommended pref browser.newtabpage.enabled
+1588100408395	Marionette	DEBUG	Resetting recommended pref browser.pagethumbnails.capturing_disabled
+1588100408395	Marionette	DEBUG	Resetting recommended pref browser.search.update
+1588100408395	Marionette	DEBUG	Resetting recommended pref browser.tabs.disableBackgroundZombification
+1588100408396	Marionette	DEBUG	Resetting recommended pref browser.tabs.remote.separatePrivilegedContentProcess
+1588100408396	Marionette	DEBUG	Resetting recommended pref browser.tabs.unloadOnLowMemory
+1588100408396	Marionette	DEBUG	Resetting recommended pref browser.tabs.warnOnCloseOtherTabs
+1588100408396	Marionette	DEBUG	Resetting recommended pref browser.tabs.warnOnOpen
+1588100408396	Marionette	DEBUG	Resetting recommended pref browser.usedOnWindows10.introURL
+1588100408396	Marionette	DEBUG	Resetting recommended pref browser.urlbar.suggest.searches
+1588100408397	Marionette	DEBUG	Resetting recommended pref datareporting.policy.dataSubmissionPolicyAccepted
+1588100408397	Marionette	DEBUG	Resetting recommended pref dom.disable_beforeunload
+1588100408397	Marionette	DEBUG	Resetting recommended pref dom.disable_open_during_load
+1588100408397	Marionette	DEBUG	Resetting recommended pref dom.file.createInChild
+1588100408397	Marionette	DEBUG	Resetting recommended pref dom.max_chrome_script_run_time
+1588100408397	Marionette	DEBUG	Resetting recommended pref dom.max_script_run_time
+1588100408398	Marionette	DEBUG	Resetting recommended pref dom.push.connection.enabled
+1588100408398	Marionette	DEBUG	Resetting recommended pref extensions.getAddons.cache.enabled
+1588100408398	Marionette	DEBUG	Resetting recommended pref extensions.webservice.discoverURL
+1588100408398	Marionette	DEBUG	Resetting recommended pref network.http.prompt-temp-redirect
+1588100408398	Marionette	DEBUG	Resetting recommended pref network.http.speculative-parallel-limit
+1588100408398	Marionette	DEBUG	Resetting recommended pref privacy.trackingprotection.enabled
+1588100408398	Marionette	DEBUG	Resetting recommended pref security.fileuri.strict_origin_policy
+1588100408398	Marionette	DEBUG	Resetting recommended pref security.notification_enable_delay
+1588100408400	Marionette	DEBUG	Resetting recommended pref signon.autofillForms
+1588100408400	Marionette	DEBUG	Resetting recommended pref signon.rememberSignons
+1588100408400	Marionette	DEBUG	Resetting recommended pref toolkit.cosmeticAnimations.enabled
+1588100408401	Marionette	INFO	Stopped listening on port 50837
+1588100408401	Marionette	DEBUG	Marionette stopped listening
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[Parent 8636, Gecko_IOThread] WARNING: pipe error: 232: file z:/task_1579288126/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 507
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 5167: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIWindowMediator.getEnumerator]
+1588100410289	geckodriver::marionette	DEBUG	Browser process stopped: exit code: 0
+1588100410464	webdriver::server	DEBUG	<- 500 Internal Server Error {"value":{"error":"unknown error","message":"Failed to decode response from marionette","stacktrace":""}}
