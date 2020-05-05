@@ -1,7 +1,8 @@
-package ru.Bykova.JAVA_lessons.addressbook;
+package ru.Bykova.JAVA_lessons.addressbook.tests;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import ru.Bykova.JAVA_lessons.addressbook.appmanager.ApplicationManager;
 
 public class TestBase {
 

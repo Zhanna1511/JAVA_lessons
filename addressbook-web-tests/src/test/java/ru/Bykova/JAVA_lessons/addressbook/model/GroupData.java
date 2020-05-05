@@ -1,4 +1,4 @@
-package ru.Bykova.JAVA_lessons.addressbook;
+package ru.Bykova.JAVA_lessons.addressbook.model;
 
 public class GroupData {
     private final String name;

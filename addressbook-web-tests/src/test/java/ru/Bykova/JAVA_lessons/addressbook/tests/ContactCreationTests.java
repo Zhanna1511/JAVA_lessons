@@ -1,4 +1,4 @@
-package ru.Bykova.JAVA_lessons.addressbook;
+package ru.Bykova.JAVA_lessons.addressbook.tests;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -123,7 +123,7 @@ public class ContactCreationTests {
 
   private void chooseAvatar() {
     wd.findElement(By.name("photo")).clear();
-    wd.findElement(By.name("photo")).sendKeys("C:\\develop\\JAVA_lessons\\addressbook-web-tests\\src\\test\\java\\ru\\Bykova\\JAVA_lessons\\addressbook\\1559798617_1.jpg");
+    wd.findElement(By.name("photo")).sendKeys("C:\\develop\\JAVA_lessons\\addressbook-web-ru.Bykova.JAVA_lessons.addressbook.tests\\src\\test\\java\\ru\\Bykova\\JAVA_lessons\\addressbook\\1559798617_1.jpg");
   }
 
   private void fillNameForms() {
