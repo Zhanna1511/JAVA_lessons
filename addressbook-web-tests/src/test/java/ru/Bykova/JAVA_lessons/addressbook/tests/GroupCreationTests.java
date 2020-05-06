@@ -1,6 +1,7 @@
 package ru.Bykova.JAVA_lessons.addressbook.tests;
 
 import org.testng.annotations.*;
+import ru.Bykova.JAVA_lessons.addressbook.model.TestBase;
 
 public class GroupCreationTests extends TestBase {
 

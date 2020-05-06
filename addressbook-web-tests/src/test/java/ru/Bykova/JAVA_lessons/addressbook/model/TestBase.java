@@ -1,4 +1,4 @@
-package ru.Bykova.JAVA_lessons.addressbook.tests;
+package ru.Bykova.JAVA_lessons.addressbook.model;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
