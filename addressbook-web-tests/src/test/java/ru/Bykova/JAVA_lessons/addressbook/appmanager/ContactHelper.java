@@ -8,22 +8,16 @@ import ru.Bykova.JAVA_lessons.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
     public ContactHelper(WebDriver wd) {
+
         super(wd);
     }
-
-    public void returnToHomePage() {
-        click(By.linkText("home page"));
-        }
 
     public void submitContactCreation() {
         click(By.xpath("(//input[@name='submit'])[2]"));
     }
 
-    public void chooseGroup(String groupTitle) {
-        select(By.name("new_group"), groupTitle);
-    }
-    private void select(By locator, String groupTitle) {
-        new Select(wd.findElement(locator)).selectByVisibleText(groupTitle);
+    private void select(By locator, String value) {
+        new Select(wd.findElement(locator)).selectByVisibleText(value);
     }
     /*
     public void chooseAvatar(String img) {
@@ -54,6 +48,11 @@ public class ContactHelper extends HelperBase {
         select(By.name("aday"), contactData.getAday());
         select(By.name("amonth"), contactData.getAmonth());
         type(By.name("ayear"), contactData.getAyear());
+        if (creation) {
+            select(By.name("new_group"), contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
         type(By.name("address2"), contactData.getHomeAdress());
         type(By.name("phone2"), contactData.getHomePhone2());
         type(By.name("notes"), contactData.getNotes());
@@ -80,5 +79,20 @@ public class ContactHelper extends HelperBase {
     }
     public void submitContactModification() {
         click(By.xpath("//input[@name='update']"));
+    }
+    public void createContact(ContactData contact, boolean creation) {
+        initContactCreation();
+        fillContactForms(contact, creation);
+        // app.getContactHelper().chooseAvatar("\\img\\i380664.jpg");
+        submitContactCreation();
+        returnToHomePage();
+    }
+
+    public void returnToHomePage() {
+        click(By.linkText("home page"));
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
     }
 }
