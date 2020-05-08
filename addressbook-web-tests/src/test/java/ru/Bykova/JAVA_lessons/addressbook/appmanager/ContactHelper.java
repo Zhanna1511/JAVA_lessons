@@ -1,6 +1,7 @@
 package ru.Bykova.JAVA_lessons.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import ru.Bykova.JAVA_lessons.addressbook.model.ContactData;
@@ -56,7 +57,12 @@ public class ContactHelper extends HelperBase {
         type(By.name("address2"), contactData.getHomeAdress());
         type(By.name("phone2"), contactData.getHomePhone2());
         type(By.name("notes"), contactData.getNotes());
+
+        if (isElementPresent(By.name("new_group"))) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        }
     }
+
     public void initContactCreation() {
         click(By.linkText("add new"));
     }
