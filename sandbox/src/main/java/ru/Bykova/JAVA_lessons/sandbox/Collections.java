@@ -20,8 +20,8 @@ public class Collections {
         languages.add("Python");
         //или 1стр: List<String> languages = new Arrays.asList("java","C#","Python","PHP");
 
-        for (String l: languages) {
-            System.out.println("Я хочу выучить " + l);
+        for (int i = 0; i < languages.size();i++) {
+            System.out.println("Я хочу выучить " + languages.get(i));
         }
         /*либо:
         for (int i=0; i < langs.length; i++) {//прох.по кажд.эл
