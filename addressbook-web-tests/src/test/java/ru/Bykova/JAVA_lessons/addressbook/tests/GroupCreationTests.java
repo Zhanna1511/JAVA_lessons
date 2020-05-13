@@ -4,16 +4,17 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.Bykova.JAVA_lessons.addressbook.model.GroupData;
 import ru.Bykova.JAVA_lessons.addressbook.model.TestBase;
+import java.util.List;
 
 public class GroupCreationTests extends TestBase {
 
     @Test
     public void testGroupCreation() throws Exception {
         app.getNavigationHelper().gotoGroupPage();
-        int before = app.getGroupHelper().getGroupCount();//выч кол-во групп ДО добавления
+        List<GroupData> before = app.getGroupHelper().getGroupList();
         app.getGroupHelper().createGroup(new GroupData("test1",null,null));
-        int after = app.getGroupHelper().getGroupCount();//выч кол-во групп ПОСЛЕ добавления
-        Assert.assertEquals(after, before +1);//кол-во групп,доб.ДО должно совп.с кол-вом групп,доб.ПОСЛЕ,увел-х на ед.
+        List<GroupData> after = app.getGroupHelper().getGroupList();
+        Assert.assertEquals(after.size(), before.size() +1);//размер списка после модификации равен размеру списка До+1
 
     }
 
