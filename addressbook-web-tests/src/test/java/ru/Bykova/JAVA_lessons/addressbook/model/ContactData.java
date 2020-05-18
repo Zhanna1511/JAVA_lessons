@@ -1,6 +1,9 @@
 package ru.Bykova.JAVA_lessons.addressbook.model;
 
+import java.util.Objects;
+
 public class ContactData {
+    private int id;
     private final String firstName;
     private final String middleName;
     private final String lastName;
@@ -22,12 +25,13 @@ public class ContactData {
     private final String aday;
     private final String amonth;
     private final String ayear;
+    private String group;
     private final String homeAdress;
     private final String homePhone2;
     private final String notes;
-    private String group;
 
-    public ContactData(String firstName, String middleName, String lastName, String nickName, String position, String company, String companyAddress, String homePhone, String mobilePhone, String workPhone, String fax, String email, String email2, String email3, String homepage, String bday, String bmonth, String byear, String aday, String amonth, String ayear, String homeAdress, String homePhone2, String Notes, String group) {
+    public ContactData(String firstName, String middleName, String lastName, String nickName, String position, String company, String companyAddress, String homePhone, String mobilePhone, String workPhone, String fax, String email, String email2, String email3, String homepage, String bday, String bmonth, String byear, String aday, String amonth, String ayear, String group, String homeAdress, String homePhone2, String Notes) {
+        this.id = Integer.MAX_VALUE;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -49,109 +53,132 @@ public class ContactData {
         this.aday = aday;
         this.amonth = amonth;
         this.ayear = ayear;
+        this.group = group;
         this.homeAdress = homeAdress;
         this.homePhone2 = homePhone2;
         notes = Notes;
+    }
+
+    public ContactData(int id, String firstName, String middleName, String lastName, String nickName, String position, String company, String companyAddress, String homePhone, String mobilePhone, String workPhone, String fax, String email, String email2, String email3, String homepage, String bday, String bmonth, String byear, String aday, String amonth, String ayear, String group, String homeAdress, String homePhone2, String Notes) {
+        this.id = id;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.nickName = nickName;
+        this.position = position;
+        this.company = company;
+        this.companyAddress = companyAddress;
+        this.homePhone = homePhone;
+        this.mobilePhone = mobilePhone;
+        this.workPhone = workPhone;
+        this.fax = fax;
+        this.email = email;
+        this.email2 = email2;
+        this.email3 = email3;
+        this.homepage = homepage;
+        this.bday = bday;
+        this.bmonth = bmonth;
+        this.byear = byear;
+        this.aday = aday;
+        this.amonth = amonth;
+        this.ayear = ayear;
         this.group = group;
+        this.homeAdress = homeAdress;
+        this.homePhone2 = homePhone2;
+        notes = Notes;
     }
 
     public String getFirstName() {
         return firstName;
     }
-
     public String getMiddleName() {
         return middleName;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public String getNickName() {
         return nickName;
     }
-
     public String getPosition() {
         return position;
     }
-
     public String getCompany() {
         return company;
     }
-
     public String getCompanyAddress() {
         return companyAddress;
     }
-
     public String getHomePhone() {
         return homePhone;
     }
-
     public String getMobilePhone() {
         return mobilePhone;
     }
-
     public String getWorkPhone() {
         return workPhone;
     }
-
     public String getFax() {
         return fax;
     }
-
     public String getEmail() {
         return email;
     }
-
     public String getEmail2() {
         return email2;
     }
-
     public String getEmail3() {
         return email3;
     }
-
     public String getHomepage() {
         return homepage;
     }
-
     public String getBday() {
         return bday;
     }
-
     public String getBmonth() {
         return bmonth;
     }
-
     public String getByear() {
         return byear;
     }
-
     public String getAday() {
         return aday;
     }
-
     public String getAmonth() {
         return amonth;
     }
-
     public String getAyear() {
         return ayear;
     }
-
+    public String getGroup() {
+        return group;
+    }
     public String getHomeAdress() {
         return homeAdress;
     }
-
     public String getHomePhone2() {
         return homePhone2;
     }
-
     public String getNotes() {
         return notes;
     }
+    public int getId() {
+        return id;
+    }
 
-    public String getGroup() {
-        return group;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName);
     }
 }
