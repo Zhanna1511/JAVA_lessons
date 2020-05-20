@@ -23,7 +23,7 @@ public class ContactModificationTests extends TestBase {
         app.getContactHelper().fillContactForms(contact, false);
         //app.getContactHelper().chooseAvatar("\\img\\i380664.jpg");
         app.getContactHelper().submitContactModification();
-        app.getNavigationHelper().gotoHomePage();
+        app.goTo().gotoHomePage();
         List<ContactData> after = app.getContactHelper().getContactList();
         Assert.assertEquals(after.size(), before.size());
 
