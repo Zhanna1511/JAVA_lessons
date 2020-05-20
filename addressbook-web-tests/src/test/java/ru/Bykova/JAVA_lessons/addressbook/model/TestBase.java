@@ -1,22 +1,20 @@
 package ru.Bykova.JAVA_lessons.addressbook.model;
 
-import org.openqa.selenium.remote.BrowserType;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import ru.Bykova.JAVA_lessons.addressbook.appmanager.ApplicationManager;
-
-import static org.openqa.selenium.remote.BrowserType.*;
+import static org.openqa.selenium.remote.BrowserType.CHROME;
 
 public class TestBase {
 
-    protected final ApplicationManager app = new ApplicationManager(CHROME);
+    protected static final ApplicationManager app = new ApplicationManager(CHROME);
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeSuite(alwaysRun = true)
     public void setUp() throws Exception {
         app.init();
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void tearDown() throws Exception {
         app.stop();
     }
