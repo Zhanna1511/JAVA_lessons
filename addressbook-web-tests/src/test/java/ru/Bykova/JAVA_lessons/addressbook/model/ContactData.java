@@ -88,6 +88,14 @@ public class ContactData {
         notes = Notes;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -163,9 +171,16 @@ public class ContactData {
     public String getNotes() {
         return notes;
     }
-    public int getId() {
-        return id;
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -182,3 +197,4 @@ public class ContactData {
         return Objects.hash(id, firstName, lastName);
     }
 }
+

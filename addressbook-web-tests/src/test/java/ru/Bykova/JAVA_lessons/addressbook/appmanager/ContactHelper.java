@@ -11,14 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
+
     public ContactHelper(WebDriver wd) {
         super(wd);
     }
-
     public void submitContactCreation() {
         click(By.xpath("(//input[@name='submit'])[2]"));
     }
-
     private void select(By locator, String value) {
         new Select(wd.findElement(locator)).selectByVisibleText(value);
     }
@@ -59,12 +58,6 @@ public class ContactHelper extends HelperBase {
         type(By.name("address2"), contactData.getHomeAdress());
         type(By.name("phone2"), contactData.getHomePhone2());
         type(By.name("notes"), contactData.getNotes());
-
-        if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-        } else {
-            Assert.assertFalse(isElementPresent(By.name("new_group")));
-        }
     }
 
     public void initContactCreation() {
@@ -76,8 +69,8 @@ public class ContactHelper extends HelperBase {
     public void deleteSelectedContact() {
         click(By.xpath("//input[@value='Delete']"));
     }
-    public void initContactModification() {
-        click(By.xpath("//img[@alt='Edit']"));
+    public void initContactModification(int index) {
+        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
     }
     public void submitContactModification() {
         click(By.xpath("//input[@name='update']"));
@@ -89,26 +82,23 @@ public class ContactHelper extends HelperBase {
         submitContactCreation();
         returnToHomePage();
     }
-
     public void returnToHomePage() {
         click(By.linkText("home page"));
     }
-
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
     }
-
     public int getGroupCount() {
         return wd.findElements(By.name("selected[]")).size();
     }
-
     public List<ContactData> getContactList() {
         List<ContactData> contacts = new ArrayList<>();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name]"));
         for (WebElement element : elements) {
-            String firstName = element.findElement(By.xpath("td[2]")).getText();
-            String lastName = element.findElement(By.xpath("td[3]")).getText();
-            ContactData contact = new ContactData(firstName, null, lastName,null,
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            String firstName = element.findElement(By.xpath("td[3]")).getText();
+            String lastName = element.findElement(By.xpath("td[2]")).getText();
+            ContactData contact = new ContactData(id, firstName, null, lastName,null,
                     null,null,null,
                     null,null,null,null,
                     null,null,null,null,
