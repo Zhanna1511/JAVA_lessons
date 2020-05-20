@@ -19,10 +19,10 @@ public class ApplicationManager {
         this.browser = browser;
     }
     public void init() {
-        if (browser.equals(BrowserType.FIREFOX)) {
-            wd = new FirefoxDriver();
-        } else if (browser.equals(BrowserType.CHROME)) {
+        if (browser.equals(BrowserType.CHROME)) {
             wd = new ChromeDriver();
+        } else if (browser.equals(BrowserType.FIREFOX)) {
+            wd = new FirefoxDriver();
         } else if (browser.equals(BrowserType.IE)) {
             wd = new InternetExplorerDriver();
         }
@@ -38,10 +38,10 @@ public class ApplicationManager {
     public void stop() {
         wd.quit();
     }
-    public GroupHelper getGroupHelper() {
+    public GroupHelper group() {//с пом.него получаем доступ к помощнику с группами
         return groupHelper;
     }
-    public NavigationHelper getNavigationHelper() {
+    public NavigationHelper goTo() {
         return navigationHelper;
     }
     public ContactHelper getContactHelper() {
