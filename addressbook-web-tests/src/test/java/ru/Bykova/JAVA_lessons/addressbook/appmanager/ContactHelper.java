@@ -75,36 +75,47 @@ public class ContactHelper extends HelperBase {
     public void submitContactModification() {
         click(By.xpath("//input[@name='update']"));
     }
-    public void createContact(ContactData contact, boolean creation) {
+    public void create(ContactData contact, boolean creation) {
         initContactCreation();
         fillContactForms(contact, creation);
         // app.getContactHelper().chooseAvatar("\\img\\i380664.jpg");
         submitContactCreation();
         returnToHomePage();
     }
+
+    public void modify(int index, ContactData contact) {
+        selectContact(index);
+        initContactModification(index);
+        fillContactForms(contact, false);
+        //app.getContactHelper().chooseAvatar("\\img\\i380664.jpg");
+        submitContactModification();
+        gotoHomePage();
+    }
+
+    public void delete(int index) {
+        selectContact(index);
+        deleteSelectedContact();
+        wd.switchTo().alert().accept();
+    }
+
+    public void gotoHomePage() {
+        click(By.linkText("home page"));
+    }
+
     public void returnToHomePage() {
         click(By.linkText("home page"));
     }
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
     }
-    public int getGroupCount() {
-        return wd.findElements(By.name("selected[]")).size();
-    }
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<>();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name]"));
         for (WebElement element : elements) {
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             String firstName = element.findElement(By.xpath("td[3]")).getText();
             String lastName = element.findElement(By.xpath("td[2]")).getText();
-            ContactData contact = new ContactData(id, firstName, null, lastName,null,
-                    null,null,null,
-                    null,null,null,null,
-                    null,null,null,null,
-                    null,null,null,null,null,null,
-                    null,null,null,null);
-            contacts.add(contact);
+            contacts.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName));
         }
         return contacts;
     }
