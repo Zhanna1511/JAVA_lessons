@@ -4,24 +4,22 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.Bykova.JAVA_lessons.addressbook.model.GroupData;
 import ru.Bykova.JAVA_lessons.addressbook.model.TestBase;
-import java.util.Comparator;
-import java.util.List;
+
+import java.util.Set;
 
 public class GroupCreationTests extends TestBase {
 
     @Test
     public void testGroupCreation() throws Exception {
         app.goTo().groupPage();//перейти на стр со списком групп
-        List<GroupData> before = app.group().list();//список ДО равен..
+        Set<GroupData> before = app.group().all();//список ДО равен..
         GroupData group = new GroupData().withName("test2");//созд нов объкт типа групп дэйт с им тест2
         app.group().create(group);
-        List<GroupData> after = app.group().list();//новый список
+        Set<GroupData> after = app.group().all();//новый список
         Assert.assertEquals(after.size(), before.size() +1);//размер списка после модификации равен размеру списка До+1
 
+        group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());//новой доб.группе присваиваем ИД,где выч-ся максим.значение ИД
         before.add(group);
-        Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(),g2.getId());
-        before.sort(byId);
-        after.sort(byId);
         Assert.assertEquals(before, after);
     }
 
