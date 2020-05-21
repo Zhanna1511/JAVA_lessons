@@ -25,6 +25,7 @@ public class ContactData {
     private String aday;
     private String amonth;
     private String ayear;
+
     private String group = "test1";
     private String homeAdress;
     private String homePhone2;
