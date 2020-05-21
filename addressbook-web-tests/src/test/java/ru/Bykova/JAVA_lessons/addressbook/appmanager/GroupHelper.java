@@ -4,10 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.Bykova.JAVA_lessons.addressbook.model.GroupData;
+import ru.Bykova.JAVA_lessons.addressbook.model.Groups;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase {
 
@@ -79,8 +78,8 @@ public class GroupHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public Set<GroupData> all() {//всп метод,кот.возвр.не список ,а мн-во
-        Set<GroupData> groups = new HashSet<GroupData>();
+    public Groups all() {//всп метод,кот.возвр.не список ,а мн-во
+        Groups groups = new Groups();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));//пробегаемся по всем эл по данному локатору
         for(WebElement element: elements) {
             String name = element.getText();//для кажд эл вытаскиваем имя и ИД группы
