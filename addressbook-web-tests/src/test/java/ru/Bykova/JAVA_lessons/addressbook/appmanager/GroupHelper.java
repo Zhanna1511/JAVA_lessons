@@ -52,8 +52,8 @@ public class GroupHelper extends HelperBase {
         initGroupCreation();
         fillGroupForm(group);
         submitGroupCreation();
+        groupCache = null;//сбросить кеширование,если группа удалена
         returnToGroupPage();
-
     }
 
     public void modify(GroupData group) {
@@ -61,12 +61,14 @@ public class GroupHelper extends HelperBase {
         initGroupModification();//нач.модификацию
         fillGroupForm(group);//заполн.форму
         submitGroupModification();//подтвердить
+        groupCache = null;//сбросить кеширование,если группа удалена
         returnToGroupPage();//вернуться на гл.стр.
     }
 
     public void delete(GroupData group) {
         selectGroupById(group.getId());
         deleteSelectedGroups();
+        groupCache = null;//сбросить кеширование,если группа удалена
         returnToGroupPage();
     }
 
@@ -78,15 +80,20 @@ public class GroupHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
+    private Groups groupCache = null; //кеширование
+
     public Groups all() {//всп метод,кот.возвр.не список ,а мн-во
-        Groups groups = new Groups();
+        if (groupCache != null) { //если кеш не пустой,то его и нужно вернуть
+           return new Groups (groupCache);//лучше возвращать не сам кеш,а его копию
+        }
+        groupCache = new Groups();//если не заполнен,то придется инициализировать,заполнить и вернуть его копию
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));//пробегаемся по всем эл по данному локатору
         for(WebElement element: elements) {
             String name = element.getText();//для кажд эл вытаскиваем имя и ИД группы
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            groups.add(new GroupData().withId(id).withName(name));//созд.объект с такими атриб. и помещаем его в мн-во
+            groupCache.add(new GroupData().withId(id).withName(name));//созд.объект с такими атриб. и помещаем его в мн-во
         }
-        return groups;
+        return (groupCache);//возвр копию кеша
     }
 }
 
