@@ -13,14 +13,24 @@ public class GroupCreationTests extends TestBase {
     @Test
     public void testGroupCreation() throws Exception {
         app.goTo().groupPage();//перейти на стр со списком групп
-        Groups before = (Groups) app.group().all();//список ДО равен..
-        GroupData group = new GroupData().withName("test2");//созд нов объкт типа групп дэйт с им тест2
+        Groups before = app.group().all();//список ДО равен..
+        GroupData group = new GroupData().withName("test1");//созд нов объкт типа групп дэйт с им тест2
         app.group().create(group);
-        Groups after = (Groups) app.group().all();//новый список
-        assertThat(after.size(), equalTo(before.size() +1));//размер списка после модификации равен размеру списка До+1
-        //новой доб.группе присваиваем ИД,где выч-ся максим.значение ИД
+        assertThat(app.group().count(), equalTo(before.size() + 1));
+        Groups after = app.group().all();//новый список
         assertThat(after, equalTo(
                 before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));//проверялка для сравнения 2хобъектов
+    }
+
+    @Test
+    public void testBadGroupCreation() throws Exception {//пример негативного теста
+        app.goTo().groupPage();
+        Groups before = app.group().all();
+        GroupData group = new GroupData().withName("test1'");
+        app.group().create(group);
+        assertThat(app.group().count(), equalTo(before.size()));//проверка должна стоять перед загрузкой списка групп
+        Groups after = app.group().all();
+        assertThat(after, equalTo(before));
     }
 
 }
