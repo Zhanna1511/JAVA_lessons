@@ -1,16 +1,15 @@
 package ru.Bykova.JAVA_lessons.addressbook.tests;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import ru.Bykova.JAVA_lessons.addressbook.model.ContactData;
 import ru.Bykova.JAVA_lessons.addressbook.model.Contacts;
 import ru.Bykova.JAVA_lessons.addressbook.model.TestBase;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+
 
 public class ContactCreationTests extends TestBase {
-    private WebDriver wd;
 
     @Test
     public void testContactCreation() throws Exception {
@@ -24,9 +23,22 @@ public class ContactCreationTests extends TestBase {
                 "SPb, Nevsky avenu").withHomePhone2("345-56-34").withPosition("Fish seller");
         app.contact().create(contact, true);
         Contacts after = app.contact().all();
-        assertThat(after.size(), equalTo(before.size() + 1));
+        assertThat(after.size(), equalTo(before.size() +1));
 
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+    }
+
+    @Test
+    public void testBadContactCreation() throws Exception {
+        Contacts before = app.contact().all();
+        ContactData contact = new ContactData().withFirstName("Gho'").withMiddleName("Alan").withLastName("Smith").withNickName(
+                "Nicky").withBday("12").withBmonth("March").withByear("1995").withAday("11").withAmonth(
+                "June").withAyear("2001").withGroup("test1");
+        app.contact().create(contact, true);
+        assertThat(app.contact().count(), equalTo(before.size()));
+        Contacts after = app.contact().all();
+
+        assertThat(after, equalTo(before));
     }
 }
