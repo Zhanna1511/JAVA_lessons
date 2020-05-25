@@ -1,5 +1,6 @@
 package ru.Bykova.JAVA_lessons.addressbook.model;
 
+import java.io.File;
 import java.util.Objects;
 
 public class ContactData {
@@ -32,6 +33,17 @@ public class ContactData {
     private String homeAddress;
     private String homePhone2;
     private String notes;
+
+    public File getPhoto() {
+        return photo;//доб фото
+    }
+
+    public ContactData withPhoto(File photo) {//заменили сеттер
+        this.photo = photo;
+        return this;
+    }
+
+    private File photo;
 
     public String getAllPhones() {
         return allPhones;
