@@ -3,6 +3,7 @@ package ru.Bykova.JAVA_lessons.addressbook.generators;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.thoughtworks.xstream.XStream;
 import ru.Bykova.JAVA_lessons.addressbook.model.GroupData;
 
 import java.io.File;
@@ -20,6 +21,9 @@ public class GroupDataGenerator {
     @Parameter(names ="-f", description = "Target file")
     public String file;
 
+    @Parameter(names ="-d", description = "Data format")//для формата xml
+    public String format;
+
     public static void main(String[] args) throws IOException {//массив пар-ов
         GroupDataGenerator generator = new GroupDataGenerator();
         JCommander jCommander = new JCommander(generator);
@@ -34,10 +38,26 @@ public class GroupDataGenerator {
 
     private void run() throws IOException {
         List<GroupData> groups = generateGroups(count);//генерация данных
-        save(groups, new File(file));//сохр-е данных в файл
+        if (format.equals("csv")){//проверка для формата
+            saveAsCsv(groups, new File(file));//сохр-е данных в файл
+        } else if (format.equals("xml")){
+            saveAsXml(groups, new File(file));
+        } else {
+            System.out.println("Unrecognized format " + format);
+
+        }
     }
 
-    private void save(List<GroupData> groups, File file) throws IOException {
+    private void saveAsXml(List<GroupData> groups, File file) throws IOException {
+        XStream xstream = new XStream();//список групп,который нужно сохранять
+        xstream.processAnnotations(GroupData.class);//чтобы в файле xml вместо длинного адреса был тег
+        String xml = xstream.toXML(groups);//файл,в кот.нужно сохранять
+        Writer writer = new FileWriter(file);
+        writer.write(xml);
+        writer.close();
+    }
+
+    private void saveAsCsv(List<GroupData> groups, File file) throws IOException {
         System.out.println(new File(".").getAbsolutePath());
         Writer writer = new FileWriter(file); //откр файл для записи
         for (GroupData group : groups) {//проходимся в цикле по всем группам,кот.нах-ся в списке групс

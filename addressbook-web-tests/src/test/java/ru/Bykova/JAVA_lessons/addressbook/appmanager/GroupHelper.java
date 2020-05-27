@@ -89,7 +89,7 @@ public class GroupHelper extends HelperBase {
         groupCache = new Groups();//если не заполнен,то придется инициализировать,заполнить и вернуть его копию
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));//пробегаемся по всем эл по данному локатору
         for(WebElement element: elements) {
-            String name = element.getText();//для кажд эл вытаскиваем имя и ИД группы
+            String name = element.getText();//для кажд эл вытаскиваем имя и id группы
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             groupCache.add(new GroupData().withId(id).withName(name));//созд.объект с такими атриб. и помещаем его в мн-во
         }
