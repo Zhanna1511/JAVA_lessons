@@ -6,6 +6,7 @@ import ru.Bykova.JAVA_lessons.addressbook.model.GroupData;
 import ru.Bykova.JAVA_lessons.addressbook.model.Groups;
 import ru.Bykova.JAVA_lessons.addressbook.model.TestBase;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,14 +17,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class GroupCreationTests extends TestBase {
 
     @DataProvider
-    public Iterator<Object[]> validGroups() {//провайдер тестовых данных
-       List<Object[]> list = new ArrayList<Object[]>();//заполн список массивов
-       list.add(new Object[] {new GroupData().withName("test1").withHeader("header 1").withFooter("footer 1")});//кажд массив содержит набор данных для 1 запуска тестового метода-сколько будет таких наборов в списке-столько раз запуститься тестовый метод
-       list.add(new Object[] {new GroupData().withName("test2").withHeader("header 2").withFooter("footer 2")});
-       list.add(new Object[] {new GroupData().withName("test3").withHeader("header 3").withFooter("footer 3")});
-       return list.iterator();
+    public Iterator<Object[]> validGroups() throws IOException {//провайдер тестовых данных
+        List<Object[]> list = new ArrayList<Object[]>();//заполн список массивов
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
+        String line = reader.readLine();
+        while (line != null) {
+            String[] split = line.split(";");//кажд строку делим на части
+            list.add(new Object[] {new GroupData().withName(split[0]).withHeader(split[1]).withFooter(split[2])});//строим из получ кусочков объект
+            line = reader.readLine();
+        }
+        return list.iterator();
     }
-
 
     @Test(dataProvider = "validGroups")
     public void testGroupCreation(GroupData group) {
