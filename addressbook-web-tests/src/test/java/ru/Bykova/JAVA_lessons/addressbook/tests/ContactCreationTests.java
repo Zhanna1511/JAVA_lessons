@@ -1,11 +1,21 @@
 package ru.Bykova.JAVA_lessons.addressbook.tests;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.thoughtworks.xstream.XStream;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.Bykova.JAVA_lessons.addressbook.model.ContactData;
 import ru.Bykova.JAVA_lessons.addressbook.model.Contacts;
 import ru.Bykova.JAVA_lessons.addressbook.model.TestBase;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,21 +23,40 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTests extends TestBase {
 
-    @Test
-    public void testContactCreation() throws Exception {
+    public Iterator<Object[]> validContactsFromXml() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contact.xml")));
+        String xml = "";
+        String line = reader.readLine();
+        while (line != null) {
+            xml += line;
+            line = reader.readLine();
+        }
+        XStream xstream = new XStream();
+        xstream.processAnnotations(ContactData.class);
+        List<ContactData> contacts = (List<ContactData>) xstream.fromXML(xml);
+        return contacts.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> validContactsFromJson() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contact.json")));
+        String json = "";
+        String line = reader.readLine();
+        while (line != null) {
+            json += line;
+            line = reader.readLine();
+        }
+        Gson gson = new Gson();
+        List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>(){}.getType());
+        return contacts.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+    }
+
+    @Test(dataProvider = "validContactsFromJson")
+    public void testContactCreation(ContactData contact) throws Exception {
         Contacts before = app.contact().all();
-        File photo = new File("src/test/resources/1559798617_1.jpg");
-        ContactData contact = new ContactData().withFirstName("Gheorghe").withMiddleName("Alan").withLastName("Smith").withPhoto(photo).withNickName(
-                "Nicky").withPosition("Tester").withCompany("Kontur").withCompanyAddress("Leninskiy avenu,168").withHomePhone(
-                "7-09-46").withMobilePhone("8-924-345-23-34").withWorkPhone("345-45-35").withFax("234-45-23").withEmail(
-                "Email1@mail.ru").withEmail2("Email2@bk.ru").withEmail3("Email3@gmail.ru").withHomepage(
-                "vk.com").withBday("12").withBmonth("March").withByear("1995").withAday("11").withAmonth(
-                "June").withAyear("2001").withGroup("test1").withHomeAddress(
-                "SPb, Nevsky avenu").withHomePhone2("345-56-34").withPosition("Fish seller");
         app.contact().create(contact, true);
         Contacts after = app.contact().all();
-        assertThat(after.size(), equalTo(before.size() +1));
-
+        assertThat(after.size(), equalTo(before.size() + 1));
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
     }
@@ -42,7 +71,7 @@ public class ContactCreationTests extends TestBase {
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void testBadContactCreation() throws Exception {
         Contacts before = app.contact().all();
         ContactData contact = new ContactData().withFirstName("Gho'").withMiddleName("Alan").withLastName("Smith").withNickName(
