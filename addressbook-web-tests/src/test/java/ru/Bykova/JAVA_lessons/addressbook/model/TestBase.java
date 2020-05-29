@@ -1,15 +1,16 @@
 package ru.Bykova.JAVA_lessons.addressbook.model;
 
+import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import ru.Bykova.JAVA_lessons.addressbook.appmanager.ApplicationManager;
-import static org.openqa.selenium.remote.BrowserType.CHROME;
 
 public class TestBase {
 
-    protected static final ApplicationManager app = new ApplicationManager(CHROME);
+    protected static final ApplicationManager app =
+            new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));//взять знач-е систем св-ва "браузер"
 
-    @BeforeSuite(alwaysRun = true)
+    @BeforeSuite
     public void setUp() throws Exception {
         app.init();
     }

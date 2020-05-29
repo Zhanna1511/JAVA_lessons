@@ -7,13 +7,13 @@ import ru.Bykova.JAVA_lessons.addressbook.model.Contacts;
 import ru.Bykova.JAVA_lessons.addressbook.model.TestBase;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class ContactDeletionTests extends TestBase {
 
     @BeforeMethod
-    public void ensurePreconditions() {
+    public void  ensurePreconditions() {
         app.goTo().homePage();
         if (app.contact().all().size() == 0) {
             app.contact().create(new ContactData().withFirstName("Gheorghe").withLastName("Smith").withCompanyAddress(
@@ -24,7 +24,7 @@ public class ContactDeletionTests extends TestBase {
 
 
     @Test
-    public void testContactDeletion() {
+    public void testContactDeletion() throws Exception{
         Contacts before = app.contact().all();
         ContactData deletedContact = before.iterator().next();
         app.contact().delete(deletedContact);
