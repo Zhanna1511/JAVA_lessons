@@ -105,6 +105,7 @@ public class ContactHelper extends HelperBase {
         selectContactById(contact.getId());
         deleteSelectedContact();
         wd.switchTo().alert().accept();
+        wd.findElement(By.cssSelector("div.msgbox"));
         contactCache = null;
     }
 
