@@ -3,19 +3,35 @@ package ru.Bykova.JAVA_lessons.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @XStreamAlias("group")//чтоб данный тег был вместо длинного адреса в файле-генераторе
-
+@Entity
+@Table(name = "group_list")
 public class GroupData {
     @XStreamOmitField //пропустить поле <id>2147483647</id>
+    @Id
+    @Column(name = "group_id")//привязка к стлб стр
     private int id = Integer.MAX_VALUE;
+
     @Expose
+    @Column(name = "group_name")
     private String name;
+
     @Expose
+    @Column(name = "group_header")
+    @Type(type = "text")
     private String header;
+
     @Expose
+    @Column(name = "group_footer")
+    @Type(type = "text")
     private String footer;
 
 
