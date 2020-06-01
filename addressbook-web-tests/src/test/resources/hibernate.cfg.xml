@@ -35,7 +35,7 @@
         <property name="hbm2ddl.auto">validate</property>
 
         <!-- Names the annotated entity class -->
-        <mapping class="ru.Bykova.JAVA_lessons.addressbook.model.ContactData"/>
+        <mapping class="ru.Bykova.JAVA_lessons.addressbook.model.GroupData"/>
 
     </session-factory>
 

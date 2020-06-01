@@ -11,13 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
 
-@XStreamAlias("group")//чтоб данный тег был вместо длинного адреса в файле-генераторе
+@XStreamAlias("group")
 @Entity
 @Table(name = "group_list")
 public class GroupData {
-    @XStreamOmitField //пропустить поле <id>2147483647</id>
+    @XStreamOmitField
     @Id
-    @Column(name = "group_id")//привязка к стлб стр
+    @Column(name = "group_id")
     private int id = Integer.MAX_VALUE;
 
     @Expose
@@ -34,59 +34,17 @@ public class GroupData {
     @Type(type = "text")
     private String footer;
 
-
     public int getId() {
         return id;
     }
-
     public GroupData withId(int id) {
         this.id = id;
         return this;
     }
-
     public GroupData withName(String name) {
         this.name = name;
         return this;
     }
-
-    public GroupData withHeader(String header) {
-        this.header = header;
-        return this;
-    }
-
-    public GroupData withFooter(String footer) {
-        this.footer = footer;
-        return this;
-    }
-
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getHeader() {
-        return header;
-    }
-
-    public String getFooter() {
-        return footer;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "GroupData{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -95,5 +53,32 @@ public class GroupData {
         return id == groupData.id &&
                 Objects.equals(name, groupData.name);
     }
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+    public GroupData withHeader(String header) {
+        this.header = header;
+        return this;
+    }
+    public GroupData withFooter(String footer) {
+        this.footer = footer;
+        return this;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getHeader() {
+        return header;
+    }
+    public String getFooter() {
+        return footer;
+    }
+    @Override
+    public String toString() {
+        return "GroupData{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
