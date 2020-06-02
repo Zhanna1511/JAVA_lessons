@@ -14,19 +14,20 @@ public class GroupModificationTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().groupPage();//переход на нужную стр.
-        if (app.group().all().size() == 0) {//проверка предусловия, и если оно не вып.-подготовка состояния
+        if (app.db().groups().size() == 0) {//проверка предусловия, и если оно не вып.-подготовка состояния
             app.group().create(new GroupData().withName("test1"));
         }
     }
 
     @Test
     public void testGroupModification() {
-        Groups before = app.group().all();
+        Groups before = app.db().groups();
         GroupData modifiedGroup = before.iterator().next();
         GroupData group = new GroupData().withId(modifiedGroup.getId()).withName("test1").withHeader("test2").withFooter("test3");
+        app.goTo().groupPage();
         app.group().modify(group);
         assertThat(app.group().count(), equalTo(before.size()));//проверка должна стоять перед загрузкой списка групп
-        Groups after = app.group().all();
+        Groups after = app.db().groups();
         assertThat(after, equalTo(before.without(modifiedGroup).withAdded(group)));
     }
 }

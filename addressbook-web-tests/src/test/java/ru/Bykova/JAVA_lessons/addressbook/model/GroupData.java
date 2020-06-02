@@ -15,6 +15,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "group_list")
 public class GroupData {
+
     @XStreamOmitField
     @Id
     @Column(name = "group_id")
@@ -45,22 +46,28 @@ public class GroupData {
         this.name = name;
         return this;
     }
+
+    public GroupData withHeader(String header) {
+        this.header = header;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GroupData groupData = (GroupData) o;
         return id == groupData.id &&
-                Objects.equals(name, groupData.name);
+                Objects.equals(name, groupData.name) &&
+                Objects.equals(header, groupData.header) &&
+                Objects.equals(footer, groupData.footer);
     }
+
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, name, header, footer);
     }
-    public GroupData withHeader(String header) {
-        this.header = header;
-        return this;
-    }
+
     public GroupData withFooter(String footer) {
         this.footer = footer;
         return this;
