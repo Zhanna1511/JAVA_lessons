@@ -57,10 +57,10 @@ public class GroupCreationTests extends TestBase {
     @Test(dataProvider = "validGroupsFromJson")
     public void testGroupCreation(GroupData group) {
         app.goTo().groupPage();//перейти на стр со списком групп
-        Groups before = app.group().all();//список ДО равен..
+        Groups before = app.db().groups();//список ДО равен..
         app.group().create(group);
         assertThat(app.group().count(), equalTo(before.size() + 1));
-        Groups after = app.group().all();//новый список
+        Groups after = app.db().groups();//новый список
         assertThat(after, equalTo(
                 before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));//проверялка для сравнения 2хобъектов
     }
@@ -68,11 +68,11 @@ public class GroupCreationTests extends TestBase {
     @Test(enabled = false)
     public void testBadGroupCreation() throws Exception {//пример негативного теста
         app.goTo().groupPage();
-        Groups before = app.group().all();
+        Groups before = app.db().groups();
         GroupData group = new GroupData().withName("test1'");
         app.group().create(group);
         assertThat(app.group().count(), equalTo(before.size()));//проверка должна стоять перед загрузкой списка групп
-        Groups after = app.group().all();
+        Groups after = app.db().groups();
         assertThat(after, equalTo(before));
     }
 

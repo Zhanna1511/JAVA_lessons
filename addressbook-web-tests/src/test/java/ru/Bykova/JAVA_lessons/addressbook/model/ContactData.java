@@ -9,11 +9,10 @@ import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
+@XStreamAlias("contact")
 @Entity
 @Table(name = "addressbook")
-@XStreamAlias("contact")
 public class ContactData {
-
 
     @XStreamOmitField
     @Id
@@ -97,7 +96,6 @@ public class ContactData {
     @Type(type = "text")
     private String homepage;
 
-
     @Expose
     @Column(name = "bday", columnDefinition = "TINYINT")
     private Integer bday;
@@ -105,6 +103,7 @@ public class ContactData {
     @Expose
     @Column(name = "bmonth")
     private String bmonth;
+
     @Expose
     @Column(name = "byear")
     private String byear;
@@ -145,109 +144,126 @@ public class ContactData {
     @Type(type = "text")
     private String photo;
 
-    public File getPhoto() {
-        return new File(photo);//доб фото
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", position='" + position + '\'' +
+                ", company='" + company + '\'' +
+                ", companyAddress='" + companyAddress + '\'' +
+                ", homePhone='" + homePhone + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
+                ", workPhone='" + workPhone + '\'' +
+                ", allPhones='" + allPhones + '\'' +
+                ", fax='" + fax + '\'' +
+                ", email='" + email + '\'' +
+                ", email2='" + email2 + '\'' +
+                ", email3='" + email3 + '\'' +
+                ", allEmails='" + allEmails + '\'' +
+                ", homepage='" + homepage + '\'' +
+                ", bday=" + bday +
+                ", bmonth='" + bmonth + '\'' +
+                ", byear='" + byear + '\'' +
+                ", aday=" + aday +
+                ", amonth='" + amonth + '\'' +
+                ", ayear='" + ayear + '\'' +
+                ", group='" + group + '\'' +
+                ", homeAddress='" + homeAddress + '\'' +
+                ", homePhone2='" + homePhone2 + '\'' +
+                ", notes='" + notes + '\'' +
+                ", photo='" + photo + '\'' +
+                '}';
     }
 
-    public ContactData withPhoto(File photo) {//заменили сеттер
+    public File getPhoto() {
+        if (photo== null) {
+            return null;
+        } else {
+            return new File(photo);
+        }
+    }
+    public ContactData withPhoto(File photo) {
         this.photo = photo.getPath();
         return this;
     }
-
     public String getAllPhones() {
         return allPhones;
     }
-
     public ContactData withAllPhones(String allPhones) {
         this.allPhones = allPhones;
-        return this;//для вытягивания в цепочку
+        return this;
     }
-
     public String getAllEmails() {
         return allEmails;
     }
-
     public ContactData withAllEmails(String allEmails) {
         this.allEmails = allEmails;
         return this;
     }
-
-
     public ContactData withId(int id) {
         this.id = id;
         return this;
     }
-
     public ContactData withFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
-
     public ContactData withMiddleName(String middleName) {
         this.middleName = middleName;
         return this;
     }
-
     public ContactData withLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
-
     public ContactData withNickName(String nickName) {
         this.nickName = nickName;
         return this;
     }
-
     public ContactData withPosition(String position) {
         this.position = position;
         return this;
     }
-
     public ContactData withCompany(String company) {
         this.company = company;
         return this;
     }
-
     public ContactData withCompanyAddress(String companyAddress) {
         this.companyAddress = companyAddress;
         return this;
     }
-
     public ContactData withHomePhone(String homePhone) {
         this.homePhone = homePhone;
         return this;
     }
-
     public ContactData withMobilePhone(String mobilePhone) {
         this.mobilePhone = mobilePhone;
         return this;
     }
-
     public ContactData withWorkPhone(String workPhone) {
         this.workPhone = workPhone;
         return this;
     }
-
     public ContactData withFax(String fax) {
         this.fax = fax;
         return this;
     }
-
     public ContactData withEmail(String email) {
         this.email = email;
         return this;
     }
-
     public ContactData withEmail2(String email2) {
         this.email2 = email2;
         return this;
     }
-
     public ContactData withEmail3(String email3) {
         this.email3 = email3;
         return this;
     }
-
     public ContactData withHomepage(String homepage) {
         this.homepage = homepage;
         return this;
@@ -277,36 +293,29 @@ public class ContactData {
         this.amonth = amonth;
         return this;
     }
-
     public ContactData withAyear(String ayear) {
         this.ayear = ayear;
         return this;
     }
-
     public ContactData withGroup(String group) {
         this.group = group;
         return this;
     }
-
     public ContactData withHomeAddress(String homeAddress) {
         this.homeAddress = homeAddress;
         return this;
     }
-
     public ContactData withHomePhone2(String homePhone2) {
         this.homePhone2 = homePhone2;
         return this;
     }
-
     public ContactData withNotes(String notes) {
         this.notes = notes;
         return this;
     }
-
     public int getId() {
         return id;
     }
-
     public String getFirstName() {
         return firstName;
     }
@@ -361,37 +370,6 @@ public class ContactData {
     public String getByear() {
         return byear;
     }
-    public String getAday() {
-        return aday.toString();
-    }
-    public String getAmonth() {
-        return amonth;
-    }
-    public String getAyear() {
-        return ayear;
-    }
-    public String getGroup() {
-        return group;
-    }
-    public String getHomeAddress() {
-        return homeAddress;
-    }
-    public String getHomePhone2() {
-        return homePhone2;
-    }
-    public String getNotes() {
-        return notes;
-    }
-
-    @Override
-    public String toString() {
-        return "ContactData{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -400,12 +378,64 @@ public class ContactData {
         ContactData that = (ContactData) o;
         return id == that.id &&
                 Objects.equals(firstName, that.firstName) &&
-                Objects.equals(lastName, that.lastName);
+                Objects.equals(middleName, that.middleName) &&
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(nickName, that.nickName) &&
+                Objects.equals(position, that.position) &&
+                Objects.equals(company, that.company) &&
+                Objects.equals(companyAddress, that.companyAddress) &&
+                Objects.equals(homePhone, that.homePhone) &&
+                Objects.equals(mobilePhone, that.mobilePhone) &&
+                Objects.equals(workPhone, that.workPhone) &&
+                Objects.equals(allPhones, that.allPhones) &&
+                Objects.equals(fax, that.fax) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(email2, that.email2) &&
+                Objects.equals(email3, that.email3) &&
+                Objects.equals(allEmails, that.allEmails) &&
+                Objects.equals(homepage, that.homepage) &&
+                Objects.equals(bday, that.bday) &&
+                Objects.equals(byear, that.byear) &&
+                Objects.equals(aday, that.aday) &&
+                Objects.equals(ayear, that.ayear) &&
+                Objects.equals(group, that.group) &&
+                Objects.equals(homeAddress, that.homeAddress) &&
+                Objects.equals(homePhone2, that.homePhone2) &&
+                Objects.equals(notes, that.notes);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, lastName);
+        public int hashCode() {
+        return Objects.hash(id, firstName, middleName, lastName, nickName, position, company, companyAddress, homePhone, mobilePhone, workPhone, allPhones, fax, email, email2, email3, allEmails, homepage, bday, byear, aday, ayear, group, homeAddress, homePhone2, notes);
     }
+
+    public String getAday() {
+        return aday.toString();
+    }
+
+    public String getAmonth() {
+        return amonth;
+    }
+
+    public String getAyear() {
+        return ayear;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public String getHomeAddress() {
+        return homeAddress;
+    }
+
+    public String getHomePhone2() {
+        return homePhone2;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
 }
 

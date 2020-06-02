@@ -52,6 +52,11 @@ public class GroupData {
         return this;
     }
 
+    public GroupData withFooter(String footer) {
+        this.footer = footer;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -68,10 +73,6 @@ public class GroupData {
         return Objects.hash(id, name, header, footer);
     }
 
-    public GroupData withFooter(String footer) {
-        this.footer = footer;
-        return this;
-    }
     public String getName() {
         return name;
     }
@@ -81,11 +82,13 @@ public class GroupData {
     public String getFooter() {
         return footer;
     }
+
     @Override
     public String toString() {
         return "GroupData{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                "id=" + id +
+                ", header='" + header + '\'' +
+                ", footer='" + footer + '\'' +
                 '}';
     }
 }
