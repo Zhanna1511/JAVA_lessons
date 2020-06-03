@@ -387,18 +387,15 @@ public class ContactData {
                 Objects.equals(homePhone, that.homePhone) &&
                 Objects.equals(mobilePhone, that.mobilePhone) &&
                 Objects.equals(workPhone, that.workPhone) &&
-                Objects.equals(allPhones, that.allPhones) &&
                 Objects.equals(fax, that.fax) &&
                 Objects.equals(email, that.email) &&
                 Objects.equals(email2, that.email2) &&
                 Objects.equals(email3, that.email3) &&
-                Objects.equals(allEmails, that.allEmails) &&
                 Objects.equals(homepage, that.homepage) &&
                 Objects.equals(bday, that.bday) &&
                 Objects.equals(byear, that.byear) &&
                 Objects.equals(aday, that.aday) &&
-                Objects.equals(ayear, that.ayear) &&
-                Objects.equals(group, that.group) &&
+                Objects.equals(amonth, that.amonth) &&
                 Objects.equals(homeAddress, that.homeAddress) &&
                 Objects.equals(homePhone2, that.homePhone2) &&
                 Objects.equals(notes, that.notes);
