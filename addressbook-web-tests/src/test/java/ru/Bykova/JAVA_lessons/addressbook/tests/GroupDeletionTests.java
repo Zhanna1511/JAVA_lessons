@@ -13,7 +13,7 @@ public class GroupDeletionTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.goTo().groupPage();//переход на нужную стр.
+    app.goTo().GroupPage();//переход на нужную стр.
     if (app.db().groups().size() == 0) {//проверка предусловия, и если оно не вып.-подготовка состояния
       app.group().create(new GroupData().withName("test1"));//созд нов объект типа групп дэйт с им тест1
     }

@@ -56,7 +56,7 @@ public class GroupCreationTests extends TestBase {
 
     @Test(dataProvider = "validGroupsFromJson")
     public void testGroupCreation(GroupData group) {
-        app.goTo().groupPage();//перейти на стр со списком групп
+        app.goTo().GroupPage();//перейти на стр со списком групп
         Groups before = app.db().groups();//список ДО равен..
         app.group().create(group);
         assertThat(app.group().count(), equalTo(before.size() + 1));
@@ -67,7 +67,7 @@ public class GroupCreationTests extends TestBase {
 
     @Test(enabled = false)
     public void testBadGroupCreation() throws Exception {//пример негативного теста
-        app.goTo().groupPage();
+        app.goTo().GroupPage();
         Groups before = app.db().groups();
         GroupData group = new GroupData().withName("test1'");
         app.group().create(group);

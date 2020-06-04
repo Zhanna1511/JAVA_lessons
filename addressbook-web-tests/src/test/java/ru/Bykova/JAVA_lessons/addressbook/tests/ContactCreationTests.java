@@ -69,7 +69,7 @@ public class ContactCreationTests extends TestBase {
     public void testCurrentDir() {
         File currentDir = new File(".");
         System.out.println(currentDir.getAbsolutePath());//опр абс дир-ию
-        File photo = new File("src/test/resources/1559798617_1.jpg");//убедимся,что объект сущ-ет
+        File photo = new File("src/test/resources/i380664.jpg");//убедимся,что объект сущ-ет
         System.out.println(photo.getAbsolutePath());//выведем на конс.полн.путь к этому файлу
         System.out.println(photo.exists()); //проверим,что файл сущ-т
 

@@ -38,4 +38,12 @@ public class Groups extends ForwardingSet<GroupData> {
         groups.remove(group);//удаление
         return groups;//возвр копию с добавл.группой
     }
+
+    public Groups without(Groups delGroups) {
+        Groups groups = new Groups(this);
+        for (GroupData group : delGroups) {
+            groups.remove(group);
+        }
+        return  groups;
+    }
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.Bykova.JAVA_lessons.addressbook.model.ContactData;
 import ru.Bykova.JAVA_lessons.addressbook.model.Contacts;
+import ru.Bykova.JAVA_lessons.addressbook.model.GroupData;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("(//input[@name='submit'])[2]"));
     }
 
-    private void select(By locator, String value) {
+    public void select(By locator, String value) {
         new Select(wd.findElement(locator)).selectByVisibleText(value);
     }
     /*
@@ -81,6 +82,7 @@ public class ContactHelper extends HelperBase {
         //wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
         wd.findElement(By.xpath("//a[@href='edit.php?id=" + id +"']")).click();
     }
+
     public void submitContactModification() {
         click(By.xpath("//input[@name='update']"));
     }
@@ -92,6 +94,16 @@ public class ContactHelper extends HelperBase {
         submitContactCreation();
         contactCache = null;
         returnToHomePage();
+    }
+
+    public ContactData createAndReturn(ContactData contact, boolean creation) {
+        initContactCreation();
+        fillContactForms(contact, creation);
+        // app.getContactHelper().chooseAvatar("\\img\\i380664.jpg");
+        submitContactCreation();
+        contactCache = null;
+        returnToHomePage();
+        return contact;
     }
 
     public void modify(ContactData contact) {
@@ -120,6 +132,10 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("home page"));
     }
 
+    public void returnToGroup(GroupData group) {
+        click(By.linkText("group page \"" + group.getName() + "\""));
+    }
+
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
     }
@@ -142,7 +158,7 @@ public class ContactHelper extends HelperBase {
             contactCache.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName)
                     .withAllPhones(allPhones).withCompanyAddress(companyAddress).withAllEmails(allEmails));
         }
-            return (contactCache);
+        return new Contacts(contactCache);
     }
 
     public int count() {
@@ -165,5 +181,26 @@ public class ContactHelper extends HelperBase {
         return new ContactData().withId(contact.getId()).withFirstName(firstname).withLastName(lastname)
                 .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withHomePhone2(phone2)
                 .withCompanyAddress(companyAddress).withEmail(email).withEmail2(email2).withEmail3(email3);
+    }
+    public void deleteFromGroup(GroupData modifiedGroup, ContactData deletedContact) {
+        select(By.name("group"), modifiedGroup.getName());
+        selectContactById(deletedContact.getId());
+        deleteSelectedContactFromGroup();
+        returnToGroup(modifiedGroup);
+    }
+
+    private void deleteSelectedContactFromGroup() {
+        click(By.xpath("//input[@name='remove']"));
+    }
+
+    public void addToGroup(ContactData contact, GroupData group) {
+        selectContactById(contact.getId());
+        select(By.name("to_group"), group.getName());
+        addSelectedContactToGroup();
+        returnToGroup(group);
+    }
+
+    private void addSelectedContactToGroup() {
+        click(By.xpath("//input[@name='add']"));
     }
 }

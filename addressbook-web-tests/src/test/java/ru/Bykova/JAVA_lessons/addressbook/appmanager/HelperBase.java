@@ -29,6 +29,10 @@ public class HelperBase {
         }
     }
 
+    protected void typeImg(By locator, String text) {
+        wd.findElement(locator).sendKeys(text);
+    }
+
     public boolean isAlertPresent() {
         try {
             wd.switchTo().alert();

@@ -38,7 +38,7 @@ public class GroupData {
         return new Contacts(contacts);
     }
 
-    @ManyToMany(mappedBy = "groups")
+    @ManyToMany(mappedBy = "groups", fetch = FetchType.EAGER)
     private Set<ContactData> contacts = new HashSet<ContactData>();
 
     public int getId() {
@@ -73,8 +73,6 @@ public class GroupData {
     public String getFooter() {
         return footer;
     }
-
-
 
     @Override
     public boolean equals(Object o) {
