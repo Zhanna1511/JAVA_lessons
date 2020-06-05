@@ -2,7 +2,7 @@ package ru.Bykova.JAVA_lessons.addressbook.tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import ru.Bykova.JAVA_lessons.addressbook.model.*;
+import ru.Bykova.JAVA_lessons.mantis.model.*;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;

@@ -3,8 +3,8 @@ package ru.Bykova.JAVA_lessons.addressbook.tests;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.Bykova.JAVA_lessons.addressbook.model.GroupData;
-import ru.Bykova.JAVA_lessons.addressbook.model.Groups;
 import ru.Bykova.JAVA_lessons.addressbook.model.TestBase;
+import ru.Bykova.JAVA_lessons.addressbook.model.Groups;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;

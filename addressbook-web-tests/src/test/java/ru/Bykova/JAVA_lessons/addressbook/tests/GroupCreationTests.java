@@ -6,8 +6,8 @@ import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.Bykova.JAVA_lessons.addressbook.model.GroupData;
-import ru.Bykova.JAVA_lessons.addressbook.model.Groups;
 import ru.Bykova.JAVA_lessons.addressbook.model.TestBase;
+import ru.Bykova.JAVA_lessons.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;

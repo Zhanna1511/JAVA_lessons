@@ -6,8 +6,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ru.Bykova.JAVA_lessons.addressbook.model.ContactData;
-import ru.Bykova.JAVA_lessons.addressbook.model.Contacts;
 import ru.Bykova.JAVA_lessons.addressbook.model.GroupData;
+import ru.Bykova.JAVA_lessons.addressbook.model.Contacts;
 import ru.Bykova.JAVA_lessons.addressbook.model.Groups;
 
 import java.util.List;

@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.Bykova.JAVA_lessons.addressbook.model.ContactData;
-import ru.Bykova.JAVA_lessons.addressbook.model.Contacts;
 import ru.Bykova.JAVA_lessons.addressbook.model.GroupData;
+import ru.Bykova.JAVA_lessons.addressbook.model.Contacts;
 
 import java.util.List;
 

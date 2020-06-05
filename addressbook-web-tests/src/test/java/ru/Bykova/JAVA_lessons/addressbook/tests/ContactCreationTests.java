@@ -5,7 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ru.Bykova.JAVA_lessons.addressbook.model.*;
+import ru.Bykova.JAVA_lessons.mantis.model.*;
 
 import java.io.BufferedReader;
 import java.io.File;
