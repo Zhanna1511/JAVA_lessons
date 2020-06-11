@@ -28,7 +28,7 @@ public class RegistrationTests extends TestBase {
         //List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);//Ожидание письма
         List<MailMessage> mailMessages = app.james().waitForMail(user, password, 60000);
         String confirmationLink = findConfirmationLink(mailMessages, email);//присв ссылку в переменную
-        app.registration().finish(confirmationLink,"root" );//заверш регистр-ю
+        app.registration().finish(confirmationLink,password );//заверш регистр-ю
         assertTrue(app.newSession().login(user, password));//проверка,что поль-ль вх
 
     }
