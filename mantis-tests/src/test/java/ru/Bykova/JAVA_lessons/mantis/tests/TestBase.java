@@ -1,4 +1,5 @@
 package ru.Bykova.JAVA_lessons.mantis.tests;
+
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;

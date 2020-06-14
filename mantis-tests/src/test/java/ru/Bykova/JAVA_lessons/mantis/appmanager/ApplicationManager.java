@@ -19,6 +19,9 @@ public class ApplicationManager {
 
     private String browser;
     private RegistrationHelper registrationHelper;
+    private EditHelper edit;
+    private SessionHelper sessionHelper;
+    private DbHelper dbHelper;
     private FtpHelper ftp;
     private MailHelper mailHelper;
     private JamesHelper jamesHelper;
@@ -47,6 +50,13 @@ public class ApplicationManager {
         return properties.getProperty(key);
     }
 
+    public EditHelper edit() {
+        if (edit == null) {
+            edit = new EditHelper(this);
+        }
+        return edit;
+    }
+
     public RegistrationHelper registration() {
         if (registrationHelper == null) {
             registrationHelper = new RegistrationHelper(this);
@@ -73,6 +83,9 @@ public class ApplicationManager {
 
             wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             wd.get(properties.getProperty("web.baseUrl"));
+            // sessionHelper = new SessionHelper(this);
+            // sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
+            dbHelper = new DbHelper();
         }
         return wd;
     }
@@ -89,5 +102,8 @@ public class ApplicationManager {
             jamesHelper = new JamesHelper(this);
         }
         return jamesHelper;
+    }
+    public DbHelper db() {
+        return dbHelper;
     }
 }

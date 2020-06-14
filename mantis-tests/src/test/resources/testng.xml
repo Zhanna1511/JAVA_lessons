@@ -5,6 +5,9 @@
         <classes>
             <class name="ru.Bykova.JAVA_lessons.mantis.tests.LoginTests"/>
             <class name="ru.Bykova.JAVA_lessons.mantis.tests.RegistrationTests"/>
+            <class name="ru.Bykova.JAVA_lessons.mantis.tests.changePasswordTest"/>
+            <class name="ru.Bykova.JAVA_lessons.mantis.tests.DbConnectionTest"/>
+            <class name="ru.Bykova.JAVA_lessons.mantis.tests.HbConnectionTest"/>
         </classes>
     </test>
 </suite>
