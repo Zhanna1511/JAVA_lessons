@@ -28,4 +28,5 @@ public class EditHelper extends HelperBase {
         type(By.name("password_confirm"), password);
         click(By.cssSelector("button[type='submit']"));
     }
+
 }

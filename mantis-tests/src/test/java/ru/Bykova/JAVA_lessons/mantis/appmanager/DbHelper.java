@@ -30,5 +30,4 @@ public class DbHelper {
         session.close();
         return new Users(result);
     }
-
 }

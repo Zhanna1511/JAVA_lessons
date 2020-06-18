@@ -8,7 +8,6 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ru.Bykova.JAVA_lessons.mantis.model.UserData;
-
 import java.util.List;
 
 public class HbConnectionTest {

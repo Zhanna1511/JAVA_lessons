@@ -3,7 +3,6 @@ package ru.Bykova.JAVA_lessons.mantis.tests;
 import org.testng.annotations.Test;
 import ru.Bykova.JAVA_lessons.mantis.model.UserData;
 import ru.Bykova.JAVA_lessons.mantis.model.Users;
-
 import java.sql.*;
 
 public class DbConnectionTest {

@@ -33,4 +33,5 @@ test {
     if (project.hasProperty('verifyUI')) {//опция,кот вкли откл сложные проверки через ПИ
         systemProperty 'verifyUI', "${verifyUI}"
     }
+
 }

@@ -5,7 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.Bykova.JAVA_lessons.mantis.model.MailMessage;
 import ru.lanwen.verbalregex.VerbalExpression;
-
 import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.List;

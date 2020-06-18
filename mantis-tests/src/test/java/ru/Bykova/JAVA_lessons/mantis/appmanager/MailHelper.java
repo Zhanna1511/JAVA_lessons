@@ -52,5 +52,4 @@ public class MailHelper {
         wiser.start();}
 
     public  void stop() {wiser.stop();}
-
 }
