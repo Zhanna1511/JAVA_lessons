@@ -16,7 +16,7 @@ dependencies {
     implementation 'com.thoughtworks.xstream:xstream:1.4.11.1'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'mysql:mysql-connector-java:8.0.19'
-    implementation 'org.hibernate:hibernate-core:5.4.14.Final'
+    implementation 'org.hibernate:hibernate-core:5.4.17.Final'
 
 }
 
