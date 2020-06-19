@@ -8,6 +8,7 @@
             <class name="ru.Bykova.JAVA_lessons.mantis.tests.changePasswordTest"/>
             <class name="ru.Bykova.JAVA_lessons.mantis.tests.DbConnectionTest"/>
             <class name="ru.Bykova.JAVA_lessons.mantis.tests.HbConnectionTest"/>
+            <class name="ru.Bykova.JAVA_lessons.mantis.tests.SoapTests"/>
         </classes>
     </test>
 </suite>
