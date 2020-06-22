@@ -73,10 +73,10 @@ public class ApplicationManager {
 
     public WebDriver getDriver() {
         if (wd == null) {
-            if (browser.equals(BrowserType.FIREFOX)) {
-                wd = new FirefoxDriver();
-            } else if (browser.equals(BrowserType.CHROME)) {
+            if (browser.equals(BrowserType.CHROME)) {
                 wd = new ChromeDriver();
+            } else if (browser.equals(BrowserType.FIREFOX)) {
+                wd = new FirefoxDriver();
             } else if (browser.equals(BrowserType.IE)) {
                 wd = new InternetExplorerDriver();
             }
