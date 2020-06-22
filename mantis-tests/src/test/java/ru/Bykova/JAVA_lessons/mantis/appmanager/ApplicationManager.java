@@ -23,7 +23,6 @@ public class ApplicationManager {
     private DbHelper dbHelper;
     private FtpHelper ftp;
     private MailHelper mailHelper;
-    private JamesHelper jamesHelper;
     private SoapHelper soapHelper;
 
     public ApplicationManager(String browser) {
@@ -73,10 +72,10 @@ public class ApplicationManager {
 
     public WebDriver getDriver() {
         if (wd == null) {
-            if (browser.equals(BrowserType.CHROME)) {
-                wd = new ChromeDriver();
-            } else if (browser.equals(BrowserType.FIREFOX)) {
+            if (browser.equals(BrowserType.FIREFOX)) {
                 wd = new FirefoxDriver();
+            } else if (browser.equals(BrowserType.CHROME)) {
+                wd = new ChromeDriver();
             } else if (browser.equals(BrowserType.IE)) {
                 wd = new InternetExplorerDriver();
             }
@@ -97,12 +96,6 @@ public class ApplicationManager {
         return mailHelper;
     }
 
-    public JamesHelper james() {
-        if (jamesHelper == null) {
-            jamesHelper = new JamesHelper(this);
-        }
-        return jamesHelper;
-    }
     public DbHelper db() {
         return dbHelper;
     }
