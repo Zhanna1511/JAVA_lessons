@@ -1,4 +1,4 @@
-package ru.Bykova.JAVA_lessons.sandbox;
+package ru.Bykova.JAVA_lessons.addressbook.mantis.JAVA_lessons.sandbox;
 
 //с циклом for
 public class Primes { //если заранее знаем кол-во повторений
