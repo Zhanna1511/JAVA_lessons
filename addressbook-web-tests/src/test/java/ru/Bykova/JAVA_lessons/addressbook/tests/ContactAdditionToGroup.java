@@ -8,6 +8,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactAdditionToGroup extends TestBase {
+
     @BeforeMethod
     public void  ensurePreconditions() {
         if (app.db().groups().size() == 0) {

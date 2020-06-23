@@ -13,7 +13,7 @@ import java.util.Set;
 @XStreamAlias("group")
 @Entity
 @Table(name = "group_list")
-public class GroupData {
+public class GroupData extends Groups {
 
     @XStreamOmitField
     @Id
