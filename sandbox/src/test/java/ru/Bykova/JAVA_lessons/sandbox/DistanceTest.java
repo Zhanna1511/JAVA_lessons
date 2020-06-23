@@ -1,9 +1,10 @@
-package ru.Bykova.JAVA_lessons.addressbook.mantis.JAVA_lessons.sandbox;
+package ru.Bykova.JAVA_lessons.sandbox;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class DistanceTest {
+
     @Test
     public void testDistance1() {
 

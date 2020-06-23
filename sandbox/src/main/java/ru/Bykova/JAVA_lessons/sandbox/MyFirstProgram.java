@@ -1,4 +1,4 @@
-package ru.Bykova.JAVA_lessons.addressbook.mantis.JAVA_lessons.sandbox;
+package ru.Bykova.JAVA_lessons.sandbox;
 
 public class MyFirstProgram {
 
