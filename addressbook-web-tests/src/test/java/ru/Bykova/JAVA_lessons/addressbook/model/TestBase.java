@@ -21,7 +21,7 @@ public class TestBase {
     Logger logger = LoggerFactory.getLogger(TestBase.class);//переменная для логгера
 
     protected static final ApplicationManager app =
-            new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));//взять знач-е систем св-ва "браузер"
+            new ApplicationManager(System.getProperty("browser", BrowserType.FIREFOX));//взять знач-е систем св-ва "браузер"
 
     @BeforeSuite
     public void setUp() throws Exception {
